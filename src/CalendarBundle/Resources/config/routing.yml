@@ -1,0 +1,31 @@
+calendar_homepage:
+    path:     /
+    defaults: { _controller: CalendarBundle:Calendar:index }
+    
+calendar_add_event:
+    path:     /addEvent
+    defaults: { _controller: CalendarBundle:Event:addEvent }
+    
+calendar_edit_event:
+    path:     /editEvent/{event}
+    defaults: { _controller: CalendarBundle:Event:editEvent }
+    
+calendar_del_event:
+    path:     /delEvent/{event}
+    defaults: { _controller: CalendarBundle:Event:delEvent }
+    
+calendar_detail_event:
+    path:     /detailEvent/{event}
+    defaults: { _controller: CalendarBundle:Event:detailEvent }
+    
+calendar_config:
+    path:     /config
+    defaults: { _controller: CalendarBundle:Calendar:configCalendar }
+    
+calendar_edit_profil:
+    path:    /profil
+    defaults: { _controller: CalendarBundle:User:editProfil }
+    
+calendar_share:
+    path:    /share
+    defaults: { _controller: CalendarBundle:Calendar:shareAgenda }

@@ -1,0 +1,37 @@
+<?php
+
+namespace CalendarBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * UserCalendar
+ *
+ * @ORM\Table(name="user_calendar")
+ * @ORM\Entity(repositoryClass="CalendarBundle\Repository\UserCalendarRepository")
+ */
+class UserCalendar {
+
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="CalendarBundle\Entity\Calendar")
+     * @ORM\JoinColumn(referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $calendar;
+
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="CalendarBundle\Entity\User")
+     * @ORM\JoinColumn(referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $user;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="access", type="boolean", nullable=true)
+     */
+    private $access;
+
+
+}

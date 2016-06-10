@@ -1,0 +1,19 @@
+CalendarBundle\Entity\Event:
+    properties:
+        titre:
+            - NotBlank : {message : Le champ Titre doit être saisi!}
+        description:
+             - NotBlank : {message : Le champ Description doit être saisi!}
+        lieu:
+             - NotBlank : {message : Le champ Lieu doit être saisi!}
+        dateDebut:
+             - NotBlank : {message : Le champ Date Debut doit être saisi!}
+        dateFin:
+             - NotBlank : {message : Le champ Date Fin doit être saisi!}
+        heureDebut:
+             - NotBlank : {message : Le champ Heure Debut doit être saisi!}
+        heureFin:
+             - NotBlank : {message : Le champ Heure Fin doit être saisi!}
+        
+
+
