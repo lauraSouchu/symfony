@@ -1,9 +1,0 @@
-b69708,::1,GET,http://localhost/symfony/web/app_dev.php/login,1465542811,,200
-044e6f,::1,GET,http://localhost/symfony/web/app_dev.php/login,1465542921,,200
-e3974d,::1,POST,http://localhost/symfony/web/app_dev.php/login_check,1465542927,,302
-3224db,::1,GET,http://localhost/symfony/web/app_dev.php/,1465542927,,200
-c1efd7,::1,GET,http://localhost/symfony/web/app_dev.php/,1465542992,,200
-a1b42a,::1,GET,http://localhost/symfony/web/app_dev.php/config,1465543006,,200
-5597e1,::1,POST,http://localhost/symfony/web/app_dev.php/config?calendar=9,1465543012,,302
-06eed3,::1,GET,http://localhost/symfony/web/app_dev.php/,1465543012,,200
-c686e3,::1,GET,http://localhost/symfony/web/app_dev.php/addEvent,1465543020,,200

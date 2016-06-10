@@ -1,0 +1,16 @@
+/app/cache/*
+!app/cache/.gitkeep
+/app/config/parameters.yml
+/app/logs/*
+!app/logs/.gitkeep
+/app/phpunit.xml
+/bin/
+/vendor/*
+/web/bundles/
+/web/vendor/*
+/web/video/*
+/web/uploads/*
+/composer.phar
+/nbproject/
+.DS_Store
+.DS_Store.orig
