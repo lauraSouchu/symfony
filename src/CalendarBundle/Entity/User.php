@@ -4,6 +4,7 @@ namespace CalendarBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -31,6 +32,27 @@ class User extends BaseUser {
      * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
      */
     private $prenom;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="genre", type="string", length=255, nullable=true)
+     */
+    private $genre;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaire", type="string", length=500, nullable=true)
+     */
+    private $commentaire;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="age", type="integer", nullable=true)
+     */
+    private $age;
 
     /**
      * @var string
@@ -48,34 +70,18 @@ class User extends BaseUser {
      * @ORM\ManyToMany(targetEntity="CalendarBundle\Entity\Calendar", mappedBy="shared")
      */
     private $calendars;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="FormBundle\Entity\Adresse", mappedBy="user")
+     */
+    private $listadresses;
 
     public function __construct() {
         parent::__construct();
         // your own logic
     }
 
-    /**
-     * Set calendar
-     *
-     * @param \CalendarBundle\Entity\Calendar $calendar
-     *
-     * @return User
-     */
-    public function setCalendar(\CalendarBundle\Entity\Calendar $calendar = null) {
-        $this->calendar = $calendar;
-
-        return $this;
-    }
-
-    /**
-     * Get calendar
-     *
-     * @return \CalendarBundle\Entity\Calendar
-     */
-    public function getCalendar() {
-        return $this->calendar;
-    }
-
+    
 
     /**
      * Set nom
@@ -126,6 +132,78 @@ class User extends BaseUser {
     }
 
     /**
+     * Set genre
+     *
+     * @param string $genre
+     *
+     * @return User
+     */
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    /**
+     * Get genre
+     *
+     * @return string
+     */
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+
+    /**
+     * Set commentaire
+     *
+     * @param string $commentaire
+     *
+     * @return User
+     */
+    public function setCommentaire($commentaire)
+    {
+        $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaire
+     *
+     * @return string
+     */
+    public function getCommentaire()
+    {
+        return $this->commentaire;
+    }
+
+    /**
+     * Set age
+     *
+     * @param integer $age
+     *
+     * @return User
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * Get age
+     *
+     * @return integer
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
      * Set phonenumber
      *
      * @param string $phonenumber
@@ -147,6 +225,30 @@ class User extends BaseUser {
     public function getPhonenumber()
     {
         return $this->phonenumber;
+    }
+
+    /**
+     * Set calendar
+     *
+     * @param \CalendarBundle\Entity\Calendar $calendar
+     *
+     * @return User
+     */
+    public function setCalendar(\CalendarBundle\Entity\Calendar $calendar = null)
+    {
+        $this->calendar = $calendar;
+
+        return $this;
+    }
+
+    /**
+     * Get calendar
+     *
+     * @return \CalendarBundle\Entity\Calendar
+     */
+    public function getCalendar()
+    {
+        return $this->calendar;
     }
 
     /**
@@ -181,5 +283,39 @@ class User extends BaseUser {
     public function getCalendars()
     {
         return $this->calendars;
+    }
+
+    /**
+     * Add adress
+     *
+     * @param \FormBundle\Entity\Adresse $adress
+     *
+     * @return User
+     */
+    public function addListadresses(\FormBundle\Entity\Adresse $adress)
+    {
+        $this->listadresses[] = $adress;
+
+        return $this;
+    }
+
+    /**
+     * Remove adress
+     *
+     * @param \FormBundle\Entity\Adresse $adress
+     */
+    public function removeListadresses(\FormBundle\Entity\Adresse $adress)
+    {
+        $this->listadresses->removeElement($adress);
+    }
+
+    /**
+     * Get adresses
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getListadresses()
+    {
+        return $this->listadresses;
     }
 }

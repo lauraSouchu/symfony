@@ -31,6 +31,27 @@ class User extends BaseUser {
      * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
      */
     private $prenom;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="genre", type="string", length=255, nullable=true)
+     */
+    private $genre;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaire", type="string", length=500, nullable=true)
+     */
+    private $commentaire;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="age", type="integer", nullable=true)
+     */
+    private $age;
 
     /**
      * @var string
@@ -48,104 +69,16 @@ class User extends BaseUser {
      * @ORM\ManyToMany(targetEntity="CalendarBundle\Entity\Calendar", mappedBy="shared")
      */
     private $calendars;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="FormBundle\Entity\Adresse", mappedBy="user")
+     */
+    private $adresses;
 
     public function __construct() {
         parent::__construct();
         // your own logic
     }
 
-    /**
-     * Set calendar
-     *
-     * @param \CalendarBundle\Entity\Calendar $calendar
-     *
-     * @return User
-     */
-    public function setCalendar(\CalendarBundle\Entity\Calendar $calendar = null) {
-        $this->calendar = $calendar;
-
-        return $this;
-    }
-
-    /**
-     * Get calendar
-     *
-     * @return \CalendarBundle\Entity\Calendar
-     */
-    public function getCalendar() {
-        return $this->calendar;
-    }
-
-
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     *
-     * @return User
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * Set prenom
-     *
-     * @param string $prenom
-     *
-     * @return User
-     */
-    public function setPrenom($prenom)
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    /**
-     * Get prenom
-     *
-     * @return string
-     */
-    public function getPrenom()
-    {
-        return $this->prenom;
-    }
-
-    /**
-     * Set phonenumber
-     *
-     * @param string $phonenumber
-     *
-     * @return User
-     */
-    public function setPhonenumber($phonenumber)
-    {
-        $this->phonenumber = $phonenumber;
-
-        return $this;
-    }
-
-    /**
-     * Get phonenumber
-     *
-     * @return string
-     */
-    public function getPhonenumber()
-    {
-        return $this->phonenumber;
-    }
+    
 }

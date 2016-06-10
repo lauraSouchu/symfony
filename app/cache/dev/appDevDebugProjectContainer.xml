@@ -17,6 +17,7 @@
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="CalendarBundle">CalendarBundle\CalendarBundle</parameter>
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
+      <parameter key="FormBundle">FormBundle\FormBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -1861,7 +1862,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>575a7072ad67d7.10639253</argument>
+            <argument>575ac0ab369261.84063901</argument>
           </service>
         </argument>
         <argument type="service">
@@ -2101,7 +2102,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>575a7072ad67d7.10639253</argument>
+            <argument>575ac0ab369261.84063901</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2617,6 +2618,7 @@
           <call method="setEntityNamespaces">
             <argument type="collection">
               <argument key="CalendarBundle">CalendarBundle\Entity</argument>
+              <argument key="FormBundle">FormBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -2637,10 +2639,23 @@
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
                         <argument>/Users/thomasberthe/Sites/IMIE/symfony/src/CalendarBundle/Entity</argument>
+                        <argument>/Users/thomasberthe/Sites/IMIE/symfony/src/FormBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
                   <argument>CalendarBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/Users/thomasberthe/Sites/IMIE/symfony/src/CalendarBundle/Entity</argument>
+                        <argument>/Users/thomasberthe/Sites/IMIE/symfony/src/FormBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>FormBundle\Entity</argument>
                 </call>
                 <call method="addDriver">
                   <argument type="service">
@@ -3160,6 +3175,10 @@
       <call method="addPath">
         <argument>/Users/thomasberthe/Sites/IMIE/symfony/vendor/friendsofsymfony/user-bundle/Resources/views</argument>
         <argument>FOSUser</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/thomasberthe/Sites/IMIE/symfony/src/FormBundle/Resources/views</argument>
+        <argument>Form</argument>
       </call>
       <call method="addPath">
         <argument>/Users/thomasberthe/Sites/IMIE/symfony/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>

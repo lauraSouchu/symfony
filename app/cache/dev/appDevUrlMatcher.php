@@ -105,6 +105,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // form_add_user
+        if ($pathinfo === '/form/addUser') {
+            return array (  '_controller' => 'FormBundle\\Controller\\FormController::addUserAction',  '_route' => 'form_add_user',);
+        }
+
         // calendar_homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
