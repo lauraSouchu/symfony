@@ -37,13 +37,13 @@ class UserAdresseType extends AbstractType {
                     'attr' => array('class' => 'form-control')
                 ))
                 ->add('commentaire', 'textarea', array('required' => false, 'label' => 'Commentaire :', 'attr' => array('class' => 'form-control')))
-                ->add('listadresses', 'collection', array('entry_type' => new AdresseType(), 'label' => '', 'data_class' => 'FormBundle\Entity\Adresse'))
+                ->add('listadresses', 'collection', array('entry_type' => new AdresseType(), 'label' => 'TOTO', 'data_class' => 'FormBundle\Entity\Adresse'))
                 ->add('Enregistrer', 'submit', array(
                     'attr' => array('class' => 'btn btn-success'),
         ));
         ;
 
-        $builder->get('listadresses')
+        /*$builder->get('listadresses')
                 ->addModelTransformer(new CallbackTransformer(
                         function ($tagsAsArray) {
                     if (!empty($tagsAsArray)) {
@@ -58,7 +58,7 @@ class UserAdresseType extends AbstractType {
                     }
                 }
                 ))
-        ;
+        ;*/
     }
 
     /**
@@ -66,6 +66,7 @@ class UserAdresseType extends AbstractType {
      */
     public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults(array(
+            'data_class' => 'CalendarBundle\Entity\User'
         ));
     }
 

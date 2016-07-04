@@ -76,11 +76,11 @@ class User extends BaseUser {
      */
     private $listadresses;
 
+    
     public function __construct() {
         parent::__construct();
-        // your own logic
+        //$this->listadresses = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
     
 
     /**
@@ -317,5 +317,29 @@ class User extends BaseUser {
     public function getListadresses()
     {
         return $this->listadresses;
+    }
+
+    /**
+     * Add listadress
+     *
+     * @param \FormBundle\Entity\Adresse $listadress
+     *
+     * @return User
+     */
+    public function addListadress(\FormBundle\Entity\Adresse $listadress)
+    {
+        $this->listadresses[] = $listadress;
+
+        return $this;
+    }
+
+    /**
+     * Remove listadress
+     *
+     * @param \FormBundle\Entity\Adresse $listadress
+     */
+    public function removeListadress(\FormBundle\Entity\Adresse $listadress)
+    {
+        $this->listadresses->removeElement($listadress);
     }
 }

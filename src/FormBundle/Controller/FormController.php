@@ -16,7 +16,7 @@ class FormController extends Controller {
         $user = new User();
         $adresse = new Adresse();
         $user->addListadresses($adresse);
-
+var_dump('toto');
         $form = $this->createForm($builder, $user, array('method' => 'POST', 'action' => $this->generateUrl('form_add_user')));
 
         if ($form->handleRequest($request)->isSubmitted()) {
